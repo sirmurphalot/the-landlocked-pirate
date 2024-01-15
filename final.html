@@ -9,6 +9,21 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
+  margin: 25px;
+  display: flex;
+}
+    
+@media (max-width: 1400px) {
+  body {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    margin: 0px;
+    flex-direction: column;
+  }
 }
 
 #container {
