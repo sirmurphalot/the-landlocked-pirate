@@ -10,50 +10,60 @@ body {
   background-attachment: fixed;  
   background-size: cover;
 }
+
 #container {
-	width: 600px;
-	height: auto;
+  width: 600px;
+  height: auto;
 }
 
 .row {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 40px;
-	border-bottom: 1px solid #AFAFAF;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #AFAFAF;
 }
 
 .name {
-	position: relative;
-	display: inline-block;
-	width: 75%;
-	line-height: 45px;
+  position: relative;
+  display: inline-block;
+  width: 75%;
+  line-height: 45px;
 }
 
 .score {
-	position: relative;
-	display: inline-block;
-	width: 25%;
+  position: relative;
+  display: inline-block;
+  width: 25%;
 }
-.highLight{
- background:yellow; 
+
+.row:nth-child(1) {
+  background: gold;
+}
+
+.row:nth-child(2) {
+  background: #c0c0c0;
+}
+
+.row:nth-child(3) {
+  background: #cd7f32;
 }
     
 </style>
    
 <script>
-var $divs = $("div.row");
-$(document).ready(function () {
-    var numericallyOrderedDivs = $divs.sort(function (a, b) {
-        return $(a).find(".score").text() > $(b).find(".score").text();
-    });
-    $("#container").html(numericallyOrderedDivs);    
-    
-   $("#container").find(".row:eq(0)").addClass("highLight");
-   $("#container").find(".row:eq(1)").addClass("highLight") 
-   $("#container").find(".row:eq(2)").addClass("highLight");
-   
-});
+document.addEventListener('DOMContentLoaded', () => {
+  let elements = []
+  let container = document.querySelector('#container')
+  // Add each row to the array
+  container.querySelectorAll('.row').forEach(el => elements.push(el))
+  // Clear the container
+  container.innerHTML = ''
+  // Sort the array from highest to lowest
+  elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
+  // Put the elements back into the container
+  elements.forEach(e => container.appendChild(e))
+})
 </script>
 
     
