@@ -1,4 +1,8 @@
-/* Gold */
+<!DOCTYPE html>
+<html>
+<head>
+    
+  /* Gold */
 .row:nth-child(1) {background: gold;}
 /* Silver */
 .row:nth-child(2) {background: #c0c0c0;}
@@ -51,12 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
   container.innerHTML = ''
   elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
   elements.forEach(e => container.appendChild(e))
-})
-
-
-<!DOCTYPE html>
-<html>
-<head>
+})  
+    
+    
 <style>
 body {
   background-image: url('assets/map_background.jpeg');
